@@ -67,9 +67,9 @@
             if (id === "partners") {
                 document.querySelectorAll('#partners .card').forEach(card => {
                     card.addEventListener('click', () => {
-                        const name = card.dataset.partner-name;
-                        const blurb = card.dataset.partner-blurb;
-                        const description = card.dataset.partnet-desc;
+                        const name = card.dataset.partnerName;
+                        const blurb = card.dataset.partnerBlurb;
+                        const description = card.dataset.partnetDesc;
                         document.getElementById('partner-title').textContent = name;
                         document.getElementById('partner-blurb').innerHTML = `<strong>${name}</strong> — ${blurb}`;
                         document.getElementById('partner-description').textContent = desc;
