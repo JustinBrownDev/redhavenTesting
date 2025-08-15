@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>RedHaven Advisors</title>
+    <style>
+        :root {
+            --Brand: #de302c;
+            --Text: #4b596d;
+            --Background: #e6ebec;
+            /* use for general backgrounds */
+            --Background_darker: #d6dce5;
+            --Background_darker_darker: #b8bec7;
+
+        }
+
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+            color: var(--Text);
+            background: var(--Background);
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            background: var(--Text);
+            padding: 10px 16px;
+            display: flex;
+            gap: 18px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: var(--Background);
+            text-decoration: none;
+            padding: 8px 10px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            opacity: .9;
+        }
+
+        nav a.active {
+            background: rgba(255, 255, 255, .12);
+            opacity: 1;
+        }
+
+
+        .page {
+            flex: 1 0 auto;
+            display: none;
+            padding: 10px 0px;
+            text-align: center;
+            min-height: 90vh;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        /* HERO (Landing) */
+        .hero {
+            min-height: 90vh;
+            background: url('heroimage.jpg') center/cover no-repeat;
+            border-radius: 0 0 18px 18px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            margin: 0;
+            border-radius: 0;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, .45);
+        }
+
+        .hero-inner {
+            position: relative;
+            color: var(--Background);
+            padding: 32px;
+            max-width: 900px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: clamp(28px, 4vw, 46px);
+            margin: 0 0 14px;
+        }
+
+        .hero p {
+            font-size: clamp(16px, 2.1vw, 20px);
+            margin: 0 auto 22px;
+            line-height: 1.5;
+        }
+
+        .cta {
+            display: inline-block;
+            background: var(--Brand);
+            color: var(--Background);
+            padding: 12px 18px;
+            border: none;
+            border-radius: 10px;
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        h2 {
+            font-size: clamp(24px, 3vw, 34px);
+            margin: 0 0 16px;
+        }
+
+        p {
+            margin: 0 auto 14px;
+            max-width: 900px;
+        }
+
+        ul.bullets {
+            text-align: left;
+            margin: 18px auto;
+            max-width: 900px;
+            line-height: 1.6;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 16px;
+            margin: 18px auto;
+            max-width: 1000px;
+        }
+
+        .card {
+            background: var(--Background_darker);
+            padding: 18px;
+            border-radius: 12px;
+
+        }
+
+        .card strong {
+            font-weight: 600;
+        }
+
+        .partner-banner {
+            margin: 10px auto 18px;
+            font-weight: 600;
+        }
+
+        .detail {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 18px;
+            align-items: start;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .detail .ph {
+            background: var(--Background);
+            border-radius: 12px;
+            height: 220px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgba(0, 0, 0, 0.4);
+            font-weight: 700;
+        }
+
+        footer {
+            color: rgba(0, 0, 0, 0.4);
+            text-align: center;
+        }
+
+        /* Delivery Partner cards look clickable */
+        #partners .card {
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        #partners .card:hover {
+            background: var(--Background_darker_darker);
+        }
+
+        /* Back to partners button */
+        #back-to-partners {
+            display: inline-block;
+            margin-bottom: 20px;
+            background: var(--Brand);
+            color: var(--Background);
+            border: none;
+            padding: 10px 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        #back-to-partners:hover {
+            background: #8b1a1a;
+            /* you can optionally convert to a Brand variant */
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <nav id="navbar">
+        <a data-target="landing" class="active">Home</a>
+        <a data-target="who">Who We Are</a>
+        <a data-target="services">Services</a>
+        <a data-target="partners">Delivery Partners</a>
+        <a data-target="news">News & Articles</a>
+    </nav>
+
+    <main>
+
+        <!-- Landing Page -->
+        <section id="landing" class="page active">
+            <div class="hero">
+                <div class="hero-inner">
+                    <h1>Delivery Leadership for Digital Growth</h1>
+                    <p>Delivering complex digital initiatives with clarity, speed, and confidence. We bring hands-on
+                        execution and fractional delivery leadership to the center of your eCommerce, ERP, and marketing
+                        technology programs—so your team can focus on growth.</p>
+                    <button class="cta" onclick="showPage('services')">Learn More</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Who We Are (merged with Why Choose RedHaven) -->
+        <section id="who" class="page">
+            <h2>Who We Are</h2>
+            <p>RedHaven Advisors helps companies grow by taking the ambiguity out of delivery with clarity, speed, and
+                confidence. We step in as trusted delivery leaders and hands-on executors across your digital
+                transformation programs.</p>
+            <h3>Why Choose RedHaven for Your Digital Transformation</h3>
+            <ul class="bullets">
+                <li><strong>Fractional Expertise, Full Commitment</strong> — Gain seasoned leadership without the
+                    overhead of a full-time hire—RedHaven integrates quickly and drives results from day one.</li>
+                <li><strong>Cross-Platform Fluency</strong> — Deep experience across ERP, eCommerce, MarTech, and AI
+                    enables us to connect dots and avoid costly missteps.</li>
+                <li><strong>Execution with Clarity</strong> — We bring structure, momentum, and alignment to even the
+                    most complex initiatives, keeping teams focused and stakeholders informed.</li>
+                <li><strong>Independent, Outcome-Focused Guidance</strong> — As a neutral delivery partner, we advocate
+                    for your success—managing vendors, partners, and scope with your business goals in mind.</li>
+            </ul>
+        </section>
+
+        <!-- Services -->
+        <section id="services" class="page">
+            <h2>Our Services</h2>
+            <div class="grid">
+                <div class="card">
+                    <strong>Fractional Delivery Leadership</strong>
+                    <p>Senior-level guidance to align stakeholders, oversee execution, and keep programs moving forward.
+                    </p>
+                </div>
+                <div class="card">
+                    <strong>Program and Project Management</strong>
+                    <p>Experienced hands-on management of cross-functional workstreams, timelines, and deliverables.</p>
+                </div>
+                <div class="card">
+                    <strong>Implementation Oversight</strong>
+                    <p>We act as your internal advocate—tracking vendors, milestones, and outcomes across complex
+                        rollouts.</p>
+                </div>
+                <div class="card">
+                    <strong>Readiness and Roadmapping</strong>
+                    <p>We help teams get organized before they execute, with clear roadmaps and realistic plans.</p>
+                </div>
+                <div class="card">
+                    <strong>Partner Coordination</strong>
+                    <p>We streamline communication and accountability across technology, agency, and internal teams.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Delivery Partners -->
+        <section id="partners" class="page">
+            <h2>Delivery Partners</h2>
+            <p class="partner-banner">RedHaven works with Senior Leaders to bring comprehensive solutions to all your
+                digital transformation and fractional needs. Ensuring your needs are met.</p>
+            <div class="grid">
+                <div class="card" data-partner="Analytics"><strong>Analytics</strong></div>
+                <div class="card" data-partner="CRM"><strong>CRM</strong></div>
+                <div class="card" data-partner="ERP"><strong>ERP</strong></div>
+                <div class="card" data-partner="C-Level Fractional Leaders"><strong>C-Level Fractional Leaders</strong>
+                </div>
+                <div class="card" data-partner="Data Integration"><strong>Data Integration</strong></div>
+                <div class="card" data-partner="Fractional HR/Recruitment"><strong>Fractional HR/Recruitment</strong>
+                </div>
+                <div class="card" data-partner="Commerce Operations"><strong>Commerce Operations</strong></div>
+                <div class="card" data-partner="Data Science"><strong>Data Science</strong></div>
+                <div class="card" data-partner="Project Management"><strong>Project Management</strong></div>
+                <div class="card" data-partner="Site Design / Creative"><strong>Site Design / Creative</strong></div>
+                <div class="card" data-partner="Software Architecture"><strong>Software Architecture</strong></div>
+                <div class="card" data-partner="Software Engineering"><strong>Software Engineering</strong></div>
+                <div class="card" data-partner="Strategy"><strong>Strategy</strong></div>
+            </div>
+
+        </section>
+
+        <!-- Delivery Partner Detail -->
+        <!-- Delivery Partner Detail -->
+        <section id="partner-detail" class="page">
+            <button id="back-to-partners">← Back to Delivery Partners</button>
+            <h2 id="partner-title">Delivery Partner Detail</h2>
+            <div class="detail">
+                <div class="ph" id="partner-image">Image / Logo</div>
+                <div>
+                    <p id="partner-blurb"><strong>Blurb Highlighting the discipline</strong></p>
+                    <p id="partner-description">Bio or other description of how the service works with RedHaven.</p>
+                </div>
+            </div>
+        </section>
+
+
+
+
+        <!-- News -->
+        <section id="news" class="page">
+            <h2>News &amp; Articles</h2>
+            <p>Stay tuned for updates on our projects, industry insights, and digital transformation trends.</p>
+        </section>
+
+        <footer>
+            <p>© 2025 RedHaven Advisors. All rights reserved.</p>
+        </footer>
+    </main>
+
+    <script>
+        const nav = document.getElementById('navbar');
+        const links = [...nav.querySelectorAll('a')];
+        const pages = [...document.querySelectorAll('.page')];
+
+        function showPage(id, addToHistory = true) {
+            pages.forEach(p => p.classList.toggle('active', p.id === id));
+            links.forEach(a => a.classList.toggle('active', a.dataset.target === id));
+            window.scrollTo({ top: 0, behavior: 'auto' });
+
+            if (addToHistory) {
+                history.pushState({ page: id }, '', `#${id}`);
+            }
+        }
+
+        nav.addEventListener('click', e => {
+            const a = e.target.closest('a[data-target]');
+            if (!a) return;
+            e.preventDefault();
+            showPage(a.dataset.target);
+        });
+
+        // Partner click handling
+        document.querySelectorAll('#partners .card').forEach(card => {
+            card.addEventListener('click', () => {
+                const name = card.dataset.partner;
+                document.getElementById('partner-title').textContent = name;
+                document.getElementById('partner-blurb').innerHTML = `<strong>${name}</strong> — Blurb highlighting the discipline.`;
+                document.getElementById('partner-description').textContent = `Detailed description of how ${name} works with RedHaven.`;
+                showPage('partner-detail');
+            });
+        });
+        // Back to Partners button
+        document.getElementById('back-to-partners').addEventListener('click', () => {
+            showPage('partners');
+        });
+        // On page load, check if URL has a hash
+        const initialPage = window.location.hash.replace('#', '') || 'landing';
+        showPage(initialPage, false);
+
+        window.showPage = showPage;
+    </script>
+
+
+
+</body>
+
+</html>
