@@ -69,7 +69,7 @@
                     card.addEventListener('click', () => {
                         const name = card.dataset.partnerName;
                         const blurb = card.dataset.partnerBlurb;
-                        const description = card.dataset.partnetDesc;
+                        const desc = card.dataset.partnetDesc;
                         document.getElementById('partner-title').textContent = name;
                         document.getElementById('partner-blurb').innerHTML = `<strong>${name}</strong> — ${blurb}`;
                         document.getElementById('partner-description').textContent = desc;
