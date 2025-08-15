@@ -1,0 +1,30 @@
+<h2>Delivery Partners</h2>
+<p class="partner-banner">RedHaven works with Senior Leaders to bring comprehensive solutions to all your
+    digital transformation and fractional needs. Ensuring your needs are met.</p>
+<div class="grid">
+    <div class="card" data-partner="Analytics"><strong>Analytics</strong></div>
+    <div class="card" data-partner="CRM"><strong>CRM</strong></div>
+    <div class="card" data-partner="ERP"><strong>ERP</strong></div>
+    <div class="card" data-partner="C-Level Fractional Leaders"><strong>C-Level Fractional Leaders</strong></div>
+    <div class="card" data-partner="Data Integration"><strong>Data Integration</strong></div>
+    <div class="card" data-partner="Fractional HR/Recruitment"><strong>Fractional HR/Recruitment</strong></div>
+    <div class="card" data-partner="Commerce Operations"><strong>Commerce Operations</strong></div>
+    <div class="card" data-partner="Data Science"><strong>Data Science</strong></div>
+    <div class="card" data-partner="Project Management"><strong>Project Management</strong></div>
+    <div class="card" data-partner="Site Design / Creative"><strong>Site Design / Creative</strong></div>
+    <div class="card" data-partner="Software Architecture"><strong>Software Architecture</strong></div>
+    <div class="card" data-partner="Software Engineering"><strong>Software Engineering</strong></div>
+    <div class="card" data-partner="Strategy"><strong>Strategy</strong></div>
+</div>
+
+<script>
+    document.querySelectorAll('.card').forEach(card => {
+        card.addEventListener('click', () => {
+            const name = card.dataset.partner;
+            parent.document.getElementById('partner-title').textContent = name;
+            parent.document.getElementById('partner-blurb').innerHTML = `<strong>${name}</strong> — Blurb highlighting the discipline.`;
+            parent.document.getElementById('partner-description').textContent = `Detailed description of how ${name} works with RedHaven.`;
+            parent.showPage('partner-detail');
+        });
+    });
+</script>

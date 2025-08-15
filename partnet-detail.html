@@ -1,0 +1,15 @@
+<button id="back-to-partners">← Back to Delivery Partners</button>
+<h2 id="partner-title">Delivery Partner Detail</h2>
+<div class="detail">
+    <div class="ph" id="partner-image">Image / Logo</div>
+    <div>
+        <p id="partner-blurb"><strong>Blurb Highlighting the discipline</strong></p>
+        <p id="partner-description">Bio or other description of how the service works with RedHaven.</p>
+    </div>
+</div>
+
+<script>
+    document.getElementById('back-to-partners').addEventListener('click', () => {
+        parent.showPage('partners');
+    });
+</script>

@@ -1,0 +1,221 @@
+:root {
+    --Brand: #de302c;
+    --Text: #4b596d;
+    --Background: #e6ebec;
+    /* use for general backgrounds */
+    --Background_darker: #d6dce5;
+    --Background_darker_darker: #b8bec7;
+
+}
+
+html,
+body {
+    height: 100%;
+    margin: 0;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+    color: var(--Text);
+    background: var(--Background);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+nav {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: var(--Text);
+    padding: 10px 16px;
+    display: flex;
+    gap: 18px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+nav a {
+    color: var(--Background);
+    text-decoration: none;
+    padding: 8px 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    opacity: .9;
+}
+
+nav a.active {
+    background: rgba(255, 255, 255, .12);
+    opacity: 1;
+}
+
+
+.page {
+    flex: 1 0 auto;
+    display: none;
+    padding: 10px 0px;
+    text-align: center;
+    min-height: 90vh;
+}
+
+.page.active {
+    display: block;
+}
+
+/* HERO (Landing) */
+.hero {
+    min-height: 90vh;
+    background: url('heroimage.jpg') center/cover no-repeat;
+    border-radius: 0 0 18px 18px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin: 0;
+    border-radius: 0;
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, .45);
+}
+
+.hero-inner {
+    position: relative;
+    color: var(--Background);
+    padding: 32px;
+    max-width: 900px;
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: clamp(28px, 4vw, 46px);
+    margin: 0 0 14px;
+}
+
+.hero p {
+    font-size: clamp(16px, 2.1vw, 20px);
+    margin: 0 auto 22px;
+    line-height: 1.5;
+}
+
+.cta {
+    display: inline-block;
+    background: var(--Brand);
+    color: var(--Background);
+    padding: 12px 18px;
+    border: none;
+    border-radius: 10px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+h2 {
+    font-size: clamp(24px, 3vw, 34px);
+    margin: 0 0 16px;
+}
+
+p {
+    margin: 0 auto 14px;
+    max-width: 900px;
+}
+
+ul.bullets {
+    text-align: left;
+    margin: 18px auto;
+    max-width: 900px;
+    line-height: 1.6;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+    margin: 18px auto;
+    max-width: 1000px;
+}
+
+.card {
+    background: var(--Background_darker);
+    padding: 18px;
+    border-radius: 12px;
+
+}
+
+.card strong {
+    font-weight: 600;
+}
+
+.partner-banner {
+    margin: 10px auto 18px;
+    font-weight: 600;
+}
+
+.detail {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 18px;
+    align-items: start;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.detail .ph {
+    background: var(--Background);
+    border-radius: 12px;
+    height: 220px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(0, 0, 0, 0.4);
+    font-weight: 700;
+}
+
+footer {
+    color: rgba(0, 0, 0, 0.4);
+    text-align: center;
+}
+
+/* Delivery Partner cards look clickable */
+#partners .card {
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+#partners .card:hover {
+    background: var(--Background_darker_darker);
+}
+
+/* Back to partners button */
+#back-to-partners {
+    display: inline-block;
+    margin-bottom: 20px;
+    background: var(--Brand);
+    color: var(--Background);
+    border: none;
+    padding: 10px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+#back-to-partners:hover {
+    background: #8b1a1a;
+    /* you can optionally convert to a Brand variant */
+}
+
+object {
+    width: 100%;
+    min-height: 400px;
+    border: none;
+    display: block;
+}
