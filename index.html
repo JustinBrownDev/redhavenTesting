@@ -67,7 +67,9 @@
             if (id === "partners") {
                 document.querySelectorAll('#partners .card').forEach(card => {
                     card.addEventListener('click', () => {
-                        const name = card.dataset.partner;
+                        const name = card.dataset.partner-name;
+                        const blurb = card.dataset.partner-blurb;
+                        const description = card.dataset.partnet-desc;
                         document.getElementById('partner-title').textContent = name;
                         document.getElementById('partner-blurb').innerHTML = `<strong>${name}</strong> — Blurb highlighting the discipline.`;
                         document.getElementById('partner-description').textContent = `Detailed description of how ${name} works with RedHaven.`;
