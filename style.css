@@ -1,11 +1,12 @@
 :root {
-    --Brand: #de302c;
-    --Text: #4b596d;
-    --Background: #e6ebec;
+    --Brand: #dd2e2c;
+    --Text: #101317;
+    --Background: #f9fafb;
+    
     /* use for general backgrounds */
-    --Background_darker: #d6dce5;
-    --Background_darker_darker: #b8bec7;
-
+    --Background_darker: #a7b7ca;
+    --Background_darker_darker: #74869c;
+    --Background_darker_darker_darker: #3b4c64;
 }
 
 html,
@@ -27,12 +28,16 @@ body {
     flex-direction: column;
     min-height: 100vh;
 }
-
+hr {
+color: var(--Brand);
+border-width: 2px;
+border-style: solid;
+}
 nav {
     position: sticky;
     top: 0;
     z-index: 10;
-    background: var(--Text);
+    background: var(--Background_darker_darker_darker);
     padding: 10px 16px;
     display: flex;
     gap: 18px;
@@ -59,9 +64,16 @@ nav a.active {
 .page {
     flex: 1 0 auto;
     display: none;
-    padding: 10px 0px;
+    padding: 10px 10px;
     text-align: center;
     min-height: 90vh;
+    max-width: 1000px;
+    margin: auto;
+}
+#landing {
+    margin: 0px 0px;
+    max-width: none;
+    padding:0px 0px 10px 0px;
 }
 
 .page.active {
@@ -206,6 +218,9 @@ footer {
     border-radius: 8px;
     cursor: pointer;
     font-weight: 600;
+}
+.back-to-partners-div{
+    text-align: left;
 }
 
 #back-to-partners:hover {
